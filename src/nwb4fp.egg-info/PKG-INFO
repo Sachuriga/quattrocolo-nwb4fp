@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: nwb4fp
-Version: 0.6.2.8
+Version: 0.6.3.1
 Summary: Description of my package
 Home-page: https://github.com/sachuriga/QuattrocoloLab-nwb4fp
 Author: sachuriga
@@ -169,4 +169,3 @@ Requires-Dist: xmltodict==0.13.0
 Requires-Dist: yarl==1.9.4
 Requires-Dist: zarr==2.17.0
 Requires-Dist: zipp==3.17.0
-Requires-Dist: nwb4fp
