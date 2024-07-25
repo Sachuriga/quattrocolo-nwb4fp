@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: nwb4fp
-Version: 0.6.4.0
+Version: 0.6.4.6
 Summary: Description of my package
 Home-page: https://github.com/sachuriga/QuattrocoloLab-nwb4fp
 Author: sachuriga
@@ -103,7 +103,6 @@ Requires-Dist: pandas==2.2.1
 Requires-Dist: pandocfilters==1.5.1
 Requires-Dist: parse==1.20.1
 Requires-Dist: parso==0.8.3
-Requires-Dist: pip==23.3.1
 Requires-Dist: pkginfo==1.9.6
 Requires-Dist: platformdirs==4.2.0
 Requires-Dist: probeinterface==0.2.21

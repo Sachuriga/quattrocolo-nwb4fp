@@ -237,7 +237,6 @@ def qualitymetrix(path, temp_folder):
     cluster_group = pd.DataFrame(
             {"cluster_id": [i for i in range(len(unit_ids))], "group": b}
         )
-
     # print(sort_merge.get_property_keys())
     # print(f"get times for merge sorts{sort_merge.get_times()}")
     # wfm = si.extract_waveforms(rec_save, sort_merge, folder=fr"{temp_folder}", overwrite=True, 
