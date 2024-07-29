@@ -293,8 +293,7 @@ def calc_head_direction(positions):
     return degrees_to_pi_range(hd)
 
 def degrees_to_pi_range(degrees):
-    import math
-    radians = math.radians(degrees)
+    radians = np.radians(degrees)
     return radians
 
 def moving_direction(pos, window_points=[1, 1], step=1):
