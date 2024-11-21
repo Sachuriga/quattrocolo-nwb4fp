@@ -122,8 +122,12 @@ def nwbPHYnOPHYS(path,
                         folder_path = fr"{ECEPHY_DATA_PATH}/Record Node 102"
                         timestemp = np.load(fr'{folder_path}/experiment1/recording1/continuous/OE_FPGA_Acquisition_Board-101.Rhythm Data/sample_numbers.npy')
                     except FileNotFoundError:
-                        folder_path = fr"{ECEPHY_DATA_PATH}/Record Node 101"
-                        timestemp = np.load(fr'{folder_path}/experiment1/recording1/continuous/OE_FPGA_Acquisition_Board-100.Rhythm Data/sample_numbers.npy')
+                        try:
+                            folder_path = fr"{ECEPHY_DATA_PATH}/Record Node 102"
+                            timestemp = np.load(fr'{folder_path}/experiment1/recording1/continuous/OE_FPGA_Acquisition_Board-117.Rhythm Data/sample_numbers.npy')
+                        except FileNotFoundError:
+                            folder_path = fr"{ECEPHY_DATA_PATH}/Record Node 101"
+                            timestemp = np.load(fr'{folder_path}/experiment1/recording1/continuous/OE_FPGA_Acquisition_Board-100.Rhythm Data/sample_numbers.npy')
         
         print(folder_path)
         if skip_qmr:
@@ -165,8 +169,12 @@ def nwbPHYnOPHYS(path,
                         folder_path = fr"{ECEPHY_DATA_PATH}/Record Node 102"
                         timestemp = np.load(fr'{folder_path}/experiment1/recording1/continuous/OE_FPGA_Acquisition_Board-101.Rhythm Data/sample_numbers.npy')
                     except FileNotFoundError:
-                        folder_path = fr"{ECEPHY_DATA_PATH}/Record Node 101"
-                        timestemp = np.load(fr'{folder_path}/experiment1/recording1/continuous/OE_FPGA_Acquisition_Board-100.Rhythm Data/sample_numbers.npy')
+                        try:
+                            folder_path = fr"{ECEPHY_DATA_PATH}/Record Node 102"
+                            timestemp = np.load(fr'{folder_path}/experiment1/recording1/continuous/OE_FPGA_Acquisition_Board-117.Rhythm Data/sample_numbers.npy')
+                        except FileNotFoundError:
+                            folder_path = fr"{ECEPHY_DATA_PATH}/Record Node 101"
+                            timestemp = np.load(fr'{folder_path}/experiment1/recording1/continuous/OE_FPGA_Acquisition_Board-100.Rhythm Data/sample_numbers.npy')
         
         print(folder_path)
         if skip_qmr:
