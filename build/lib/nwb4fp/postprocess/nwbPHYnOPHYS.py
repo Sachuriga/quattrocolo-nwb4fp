@@ -35,7 +35,8 @@ def nwbPHYnOPHYS(path,
                  species,
                  vedio_search_directory,
                  path_to_save_nwbfile,
-                 skip_qmr: bool = False):
+                 skip_qmr: bool = False,
+                 post_fix_dlc: str = None):
 
     if path.endswith("phy_k_manual"):
         num2cal = int(41)
@@ -230,7 +231,7 @@ def nwbPHYnOPHYS(path,
     # converter = ConverterPipe(data_interfaces=[interface_ophys, interface_phy], verbose=False)
     # Extract what metadata we can from the source files
 
-    arr_with_new_col = load_positions_h5(path,vedio_search_directory,folder_path,UD)
+    arr_with_new_col = load_positions_h5(path,vedio_search_directory,folder_path,UD,post_fix_dlc=post_fix_dlc)
     # print(f"{arr_with_new_col.shape[1]} output the shape of the array")
     snout2neck = arr_with_new_col[:,[0,1,2,3,4]]
     neck2back4 = arr_with_new_col[:,[0,3,4,5,6]]

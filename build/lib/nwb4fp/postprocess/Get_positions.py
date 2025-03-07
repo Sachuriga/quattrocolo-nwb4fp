@@ -10,7 +10,7 @@ def main():
     folder_path = fr"S:/Sachuriga/Ephys_Recording/CR_CA1/65410/65410_2023-12-04_13-38-02_A/Record Node 102/"
     dlc =  load_positions(path,vedio_search_directory,folder_path,UD)
 
-def test_positions_h5(path,vedio_search_directory,folder_path,UD,extention_name = False):
+def test_positions_h5(path,vedio_search_directory,folder_path,UD, post_fix_dlc: str = None):
     import glob
     import os
     import pandas as pd
@@ -45,10 +45,11 @@ def test_positions_h5(path,vedio_search_directory,folder_path,UD,extention_name 
     temp = path[0 - num2cal:]
     path1 = temp.split("/")
     UD = path1[1].split("_")
-    if extention_name == False:
-        search_pattern = os.path.join(vedio_search_directory, f"*{UD[0]}*{UD[3]}{UD[1]}*800000_sk_filtered.h5")
+
+    if post_fix_dlc:
+        search_pattern = os.path.join(vedio_search_directory, f"*{UD[0]}*{UD[3]}{UD[1]}*{post_fix_dlc}")
     else:
-        search_pattern = os.path.join(vedio_search_directory, f"*{UD[0]}*{UD[3]}{UD[1]}*{extention_name}")
+        search_pattern = os.path.join(vedio_search_directory, f"*{UD[0]}*{UD[3]}{UD[1]}*800000_sk_filtered.h5")
 
 
     print(search_pattern)
@@ -63,8 +64,8 @@ def test_positions_h5(path,vedio_search_directory,folder_path,UD,extention_name 
     print(matching_files)
     try:
         dlc_path=Path(matching_files[0])
-        print("Used a 800000 iteration files")
-        model_num = 800000
+        print(f"Used a {search_pattern} iteration files")
+        model_num = f"{search_pattern}"
     except IndexError:
         try:
             search_pattern = os.path.join(vedio_search_directory, f"*{UD[0]}*{UD[3]}{UD[1]}*600000_sk_filtered.h5")
@@ -72,7 +73,7 @@ def test_positions_h5(path,vedio_search_directory,folder_path,UD,extention_name 
             matching_files = np.unique(matching_files)
             dlc_path=Path(matching_files[0])
             print(f"dlc path: {dlc_path}. Used a 600000 iteration files")
-            model_num = 600000
+            model_num = f"{search_pattern}"
         except IndexError:
             raise IndexError('No file found')
         
@@ -105,7 +106,7 @@ def test_positions_h5(path,vedio_search_directory,folder_path,UD,extention_name 
     arr_with_new_col =  np.insert(positions , 0, f_time[:len(positions)], axis=1) # type: ignore
     return arr_with_new_col, model_num, dlc_path
 
-def load_positions_h5(path,vedio_search_directory,folder_path,UD):
+def load_positions_h5(path,vedio_search_directory,folder_path,UD,post_fix_dlc: str = None):
     import glob
     import os
     import pandas as pd
@@ -140,8 +141,11 @@ def load_positions_h5(path,vedio_search_directory,folder_path,UD):
     temp = path[0 - num2cal:]
     path1 = temp.split("/")
     UD = path1[1].split("_")
+    if post_fix_dlc:
+        search_pattern = os.path.join(vedio_search_directory, f"*{UD[0]}*{UD[3]}{UD[1]}*{post_fix_dlc}")
+    else:
+        search_pattern = os.path.join(vedio_search_directory, f"*{UD[0]}*{UD[3]}{UD[1]}*800000_sk_filtered.h5")
 
-    search_pattern = os.path.join(vedio_search_directory, f"*{UD[0]}*{UD[3]}{UD[1]}*800000_sk_filtered.h5")
     print(search_pattern)
     search_pattern1 = os.path.join(folder_path, '**/**/TTL/timestamps.npy')
     search_pattern3 = os.path.join(folder_path, '**/**/TTL/states.npy')
@@ -154,7 +158,7 @@ def load_positions_h5(path,vedio_search_directory,folder_path,UD):
     print(matching_files)
     try:
         dlc_path=Path(matching_files[0])
-        print("Used a 800000 iteration files")
+        print(f"Used a {search_pattern} iteration files")
 
     except IndexError:
         try:
@@ -196,7 +200,7 @@ def load_positions_h5(path,vedio_search_directory,folder_path,UD):
     arr_with_new_col =  np.insert(positions , 0, f_time[:len(positions)], axis=1) # type: ignore
     return arr_with_new_col
 
-def load_positions(path,vedio_search_directory,folder_path,UD):
+def load_positions(path,vedio_search_directory,folder_path,UD,post_fix_dlc: str = None):
 
     ''' # Parameters:
 

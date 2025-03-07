@@ -21,7 +21,7 @@ def main() -> object:
     """
     print("main")
 
-def test_clusterInfo(path, temp_folder,save_path_test,vedio_search_directory,idun_vedio_path):
+def test_clusterInfo(path, temp_folder,save_path_test,vedio_search_directory,idun_vedio_path,post_fix_dlc: str = None):
     import shutil
     import probeinterface as pi
 
@@ -87,7 +87,7 @@ def test_clusterInfo(path, temp_folder,save_path_test,vedio_search_directory,idu
                                                folder=fr"{temp_folder}",
                                                overwrite=True)
         try:
-            arr_with_new_col,model_num, dlc_path = test_positions_h5(path,vedio_search_directory,raw_path,UD)
+            arr_with_new_col,model_num, dlc_path = test_positions_h5(path,vedio_search_directory,raw_path,UD,post_fix_dlc)
             temp_vname = dlc_path.name.split("DLC_dlcrnet")
             vname=temp_vname[0]
             path_ori = dlc_path.parent
@@ -112,7 +112,7 @@ def test_clusterInfo(path, temp_folder,save_path_test,vedio_search_directory,idu
         print(f"{raw_path} merge complete")
     except AssertionError:
             try:
-                arr_with_new_col,model_num, dlc_path = test_positions_h5(path,vedio_search_directory,raw_path,UD)
+                arr_with_new_col,model_num, dlc_path = test_positions_h5(path,vedio_search_directory,raw_path,UD,post_fix_dlc)
                 temp_vname = dlc_path.name.split("DLC_dlcrnet")
                 vname=temp_vname[0]
                 path_ori = dlc_path.parent
