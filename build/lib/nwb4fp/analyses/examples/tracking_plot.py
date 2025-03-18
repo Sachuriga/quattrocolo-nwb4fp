@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import math
 from scipy.ndimage.measurements import center_of_mass
-import spatial_maps.maps as mapp
+import nwb4fp.analyses.maps as mapp
 
 def plot_path(x, y, t, box_size, spike_times=None,
               color='grey', alpha=0.5, origin='upper',
