@@ -5,14 +5,15 @@ src/nwb4fp/__init__.py
 src/nwb4fp.egg-info/PKG-INFO
 src/nwb4fp.egg-info/SOURCES.txt
 src/nwb4fp.egg-info/dependency_links.txt
+src/nwb4fp.egg-info/requires.txt
 src/nwb4fp.egg-info/top_level.txt
 src/nwb4fp/analyses/__init__.py
-src/nwb4fp/analyses/bordercells.py
+src/nwb4fp/analyses/border_scores.py
 src/nwb4fp/analyses/data.py
 src/nwb4fp/analyses/fields.py
+src/nwb4fp/analyses/functional_scores.py
 src/nwb4fp/analyses/gridcells.py
 src/nwb4fp/analyses/maps.py
-src/nwb4fp/analyses/stats.py
 src/nwb4fp/analyses/tools.py
 src/nwb4fp/analyses/examples/tracking_plot.py
 src/nwb4fp/analyses/phase_precession/__init__.py
